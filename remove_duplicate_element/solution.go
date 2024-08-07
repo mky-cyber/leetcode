@@ -12,12 +12,13 @@ func main() {
 }
 
 func removeDuplicates(nums []int) int {
-	i := 0
-	for j := 1; j < len(nums); j++ {
-		if nums[i] != nums[j] {
-			nums[i+1] = nums[j]
-			i++
+	left := 0
+	for right := 1; right < len(nums); right++ {
+		// check for uniue element
+		if nums[left] != nums[right] {
+			nums[left+1] = nums[right]
+			left++
 		}
 	}
-	return i + 1
+	return left + 1
 }
